@@ -172,6 +172,14 @@
                         <canvas id="windPressureChart" width="100%" height="30"></canvas>
                     </div>
                 </div>
+                <div class="card mb-3" id="cobaAja4" style="display: none">
+                    <div class="card-header">
+                        <i class="fa fa-fighter-jet"></i> Rain Gauge Chart
+                    </div>
+                    <div class="card-body">
+                        <canvas id="rainGaugeChart" width="100%" height="30"></canvas>
+                    </div>
+                </div>
             </div>
         </div>
         <footer class="sticky-footer">
@@ -197,7 +205,10 @@
                 });
                 $('#windpressureShow').click(function () {
                     $('#cobaAja3').slideToggle("fast");
-                })
+                });
+                $('#raingaugeShow').click(function () {
+                    $('#cobaAja4').slideToggle("fast");
+                });
             });
         </script>
         <script type="text/javascript">
@@ -367,8 +378,8 @@
                     }
                 }
             });
-            var windPressureEx = document.getElementById("windSpeedChart");
-            var myWindSpeedChart = new Chart(windSpeedEx, {
+            var windPressureEx = document.getElementById("windPressureChart");
+            var myWindPressureChart = new Chart(windPressureEx, {
                 type: 'line',
                 data: {
                     labels: ["07:00 AM", "08:00 AM", "09:00 AM", "10:00 AM", "11:00 AM", "12:00 PM", "01:00 PM", "02:00 PM", "03:00 PM", "04:00 PM", "05:00 PM", "06:00 PM", "07:00 PM"],
@@ -384,7 +395,7 @@
                         pointHoverBackgroundColor: "rgba(2,117,216,1)",
                         pointHitRadius: 20,
                         pointBorderWidth: 2,
-                        data: [6, 6, 6, 4, 4, 4, 4, 5, 5, 6, 7, 6, 6],
+                        data: [20, 20, 10, 30, 30, 28, 25, 25, 20, 21, 20, 22, 23],
                     }],
                 },
                 options: {
@@ -403,7 +414,7 @@
                         yAxes: [{
                             ticks: {
                                 min: 0,
-                                max: 10,
+                                max: 40,
                                 maxTicksLimit: 5
                             },
                             gridLines: {
