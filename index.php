@@ -106,6 +106,24 @@
                         </div>
                     </div>
                 </div>
+                <div class="row">
+                    <div class="col-xl-4 col-sm-6 mb-3">
+                        <div class="card text-white bg-secondary o-hidden">
+                            <div class="card-body">
+                                <div class="card-body-icon">
+                                    <i class="fa fa-fw fa-fighter-jet"></i>
+                                </div>
+                                <div class="mr-5">20 Pa</div>
+                            </div>
+                            <a class="card-footer text-white clearfix small z-1" href="#" id="windpressureShow">
+                                <span class="float-left">Wind Pressure Details</span>
+                                <span class="float-right">
+                                    <i class="fa fa-angle-right"></i>
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
                 <div class="card mb-3" id="cobaAja" style="display: none">
                     <div class="card-header">
                         <i class="fa fa-thermometer"></i> Temperature Chart
@@ -128,6 +146,14 @@
                     </div>
                     <div class="card-body">
                         <canvas id="windSpeedChart" width="100%" height="30"></canvas>
+                    </div>
+                </div>
+                <div class="card mb-3" id="cobaAja3" style="display: none">
+                    <div class="card-header">
+                        <i class="fa fa-fighter-jet"></i> Wind Pressure Chart
+                    </div>
+                    <div class="card-body">
+                        <canvas id="windPressureChart" width="100%" height="30"></canvas>
                     </div>
                 </div>
             </div>
@@ -153,6 +179,9 @@
                 $('#windspeedShow').click(function () {
                     $('#cobaAja2').slideToggle("fast");
                 });
+                $('#windpressureShow').click(function () {
+                    $('#cobaAja3').slideToggle("fast");
+                })
             });
         </script>
         <script type="text/javascript">
@@ -274,6 +303,55 @@
                }
            });
             var windSpeedEx = document.getElementById("windSpeedChart");
+            var myWindSpeedChart = new Chart(windSpeedEx, {
+                type: 'line',
+                data: {
+                    labels: ["07:00 AM", "08:00 AM", "09:00 AM", "10:00 AM", "11:00 AM", "12:00 PM", "01:00 PM", "02:00 PM", "03:00 PM", "04:00 PM", "05:00 PM", "06:00 PM", "07:00 PM"],
+                    datasets: [{
+                        label: "Sessions",
+                        lineTension: 0.3,
+                        backgroundColor: "rgba(2,117,216,0.2)",
+                        borderColor: "rgba(2,117,216,1)",
+                        pointRadius: 5,
+                        pointBackgroundColor: "rgba(2,117,216,1)",
+                        pointBorderColor: "rgba(255,255,255,0.8)",
+                        pointHoverRadius: 5,
+                        pointHoverBackgroundColor: "rgba(2,117,216,1)",
+                        pointHitRadius: 20,
+                        pointBorderWidth: 2,
+                        data: [6, 6, 6, 4, 4, 4, 4, 5, 5, 6, 7, 6, 6],
+                    }],
+                },
+                options: {
+                    scales: {
+                        xAxes: [{
+                            time: {
+                                unit: 'date'
+                            },
+                            gridLines: {
+                                display: false
+                            },
+                            ticks: {
+                                maxTicksLimit: 7
+                            }
+                        }],
+                        yAxes: [{
+                            ticks: {
+                                min: 0,
+                                max: 10,
+                                maxTicksLimit: 5
+                            },
+                            gridLines: {
+                                color: "rgba(0, 0, 0, .125)",
+                            }
+                        }],
+                    },
+                    legend: {
+                        display: false
+                    }
+                }
+            });
+            var windPressureEx = document.getElementById("windSpeedChart");
             var myWindSpeedChart = new Chart(windSpeedEx, {
                 type: 'line',
                 data: {
