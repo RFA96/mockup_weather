@@ -123,6 +123,22 @@
                             </a>
                         </div>
                     </div>
+                    <div class="col-xl-4 col-sm-6 mb-3">
+                        <div class="card text-white bg-dark o-hidden">
+                            <div class="card-body">
+                                <div class="card-body-icon">
+                                    <i class="fa fa-fw fa-fighter-jet"></i>
+                                </div>
+                                <div class="mr-5">13</div>
+                            </div>
+                            <a class="card-footer text-white clearfix small z-1" href="#" id="raingaugeShow">
+                                <span class="float-left">Rain Gauge Details</span>
+                                <span class="float-right">
+                                    <i class="fa fa-angle-right"></i>
+                                </span>
+                            </a>
+                        </div>
+                    </div>
                 </div>
                 <div class="card mb-3" id="cobaAja" style="display: none">
                     <div class="card-header">
