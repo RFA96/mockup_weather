@@ -8,20 +8,20 @@
     </head>
     <body class="fixed-nav sticky-footer bg-dark" id="page-top">
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
-            <a class="navbar-brand" href="index.html">Design Mockup</a>
+            <a class="navbar-brand" href="index.php">TF-SCALE IV BATU TEAM</a>
             <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
-                    <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
+                    <li class="nav-item active" data-toggle="tooltip" data-placement="right" title="Dashboard">
                         <a class="nav-link" href="index.php">
                             <i class="fa fa-fw fa-cloud"></i>
                             <span class="nav-link-text">AWS</span>
                         </a>
                     </li>
                     <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
-                        <a class="nav-link" href="index.php">
+                        <a class="nav-link" href="traffic_management.php">
                             <i class="fa fa-fw fa-dashboard"></i>
                             <span class="nav-link-text">TMS</span>
                         </a>
@@ -182,13 +182,7 @@
                 </div>
             </div>
         </div>
-        <footer class="sticky-footer">
-            <div class="container">
-                <div class="text-center">
-                    <small>Copyright © TF-SCALE BATU PROJECT 2018</small>
-                </div>
-            </div>
-        </footer>
+        <?php include "footer.php"?>
         <?php include "materials_js.php"?>
         <script>
             $(document).ready(function () {
