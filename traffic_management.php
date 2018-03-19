@@ -54,9 +54,35 @@
             </div>
         </nav>
         <div class="content-wrapper">
-
+            <div class="container-fluid">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item">
+                        <a href="index.php">Home</a>
+                    </li>
+                    <li class="breadcrumb-item active">Traffic Management Systems</li>
+                </ol>
+                <div class="row">
+                    <div class="col-xl-12 col-sm-12 mb-3">
+                        <div id="demo" class="carousel slide" data-ride="carousel">
+                            <ul class="carousel-indicators">
+                                <li data-target="#demo" data-slide-to="0" class="active"></li>
+                                <li data-target="#demo" data-slide-to="1"></li>
+                                <li data-target="#demo" data-slide-to="2"></li>
+                            </ul>
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <img src="https://upload.wikimedia.org/wikipedia/commons/3/3e/I-80_Eastshore_Fwy.jpg" alt="Traffic" width="1100" height="500">
+                                    <div class="carousel-caption">
+                                        <h3>08:30 AM</h3>
+                                        <p>Moderate traffic</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-
         <?php include "footer.php"?>
         <?php include "materials_js.php";?>
         <script>

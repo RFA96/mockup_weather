@@ -1,5 +1,6 @@
 <!-- Javascript --->
 <script src="assets/jquery/jquery-3.2.1.min.js"></script>
+<script src="assets/bootstrap/js/bootstrap.js"></script>
 <script src="assets/bootstrap/js/bootstrap.bundle.js"></script>
 <script src="assets/jquery-easing/jquery.easing.js"></script>
 <script src="assets/chart.js/Chart.js"></script>
