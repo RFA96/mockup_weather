@@ -90,15 +90,15 @@
                         </div>
                     </div>
                     <div class="col-xl-4 col-sm-6 mb-3">
-                        <div class="card text-white bg-success o-hidden">
+                        <div class="card text-white bg-dark o-hidden">
                             <div class="card-body">
                                 <div class="card-body-icon">
-                                    <i class="fa fa-fw fa-leaf"></i>
+                                    <i class="fa fa-fw fa-glass"></i>
                                 </div>
-                                <div class="mr-5">10 km/h NW</div>
+                                <div class="mr-5">13</div>
                             </div>
-                            <a class="card-footer text-white clearfix small z-1" href="#" id="windspeedShow">
-                                <span class="float-left">Wind Speed and Directions Details</span>
+                            <a class="card-footer text-white clearfix small z-1" href="#" id="raingaugeShow">
+                                <span class="float-left">Rain Gauge Details</span>
                                 <span class="float-right">
                                     <i class="fa fa-angle-right"></i>
                                 </span>
@@ -107,7 +107,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-xl-4 col-sm-6 mb-3">
+                    <div class="col-xl-6 col-sm-6 mb-3">
                         <div class="card text-white bg-secondary o-hidden">
                             <div class="card-body">
                                 <div class="card-body-icon">
@@ -123,16 +123,16 @@
                             </a>
                         </div>
                     </div>
-                    <div class="col-xl-4 col-sm-6 mb-3">
-                        <div class="card text-white bg-dark o-hidden">
+                    <div class="col-xl-6 col-sm-6 mb-3">
+                        <div class="card text-white bg-success o-hidden">
                             <div class="card-body">
                                 <div class="card-body-icon">
-                                    <i class="fa fa-fw fa-fighter-jet"></i>
+                                    <i class="fa fa-fw fa-leaf"></i>
                                 </div>
-                                <div class="mr-5">13</div>
+                                <div class="mr-5">10 km/h NW</div>
                             </div>
-                            <a class="card-footer text-white clearfix small z-1" href="#" id="raingaugeShow">
-                                <span class="float-left">Rain Gauge Details</span>
+                            <a class="card-footer text-white clearfix small z-1" href="#" id="windspeedShow">
+                                <span class="float-left">Wind Speed and Directions Details</span>
                                 <span class="float-right">
                                     <i class="fa fa-angle-right"></i>
                                 </span>
@@ -174,7 +174,7 @@
                 </div>
                 <div class="card mb-3" id="cobaAja4" style="display: none">
                     <div class="card-header">
-                        <i class="fa fa-fighter-jet"></i> Rain Gauge Chart
+                        <i class="fa fa-glass"></i> Rain Gauge Chart
                     </div>
                     <div class="card-body">
                         <canvas id="rainGaugeChart" width="100%" height="30"></canvas>
@@ -380,6 +380,55 @@
             });
             var windPressureEx = document.getElementById("windPressureChart");
             var myWindPressureChart = new Chart(windPressureEx, {
+                type: 'line',
+                data: {
+                    labels: ["07:00 AM", "08:00 AM", "09:00 AM", "10:00 AM", "11:00 AM", "12:00 PM", "01:00 PM", "02:00 PM", "03:00 PM", "04:00 PM", "05:00 PM", "06:00 PM", "07:00 PM"],
+                    datasets: [{
+                        label: "Sessions",
+                        lineTension: 0.3,
+                        backgroundColor: "rgba(2,117,216,0.2)",
+                        borderColor: "rgba(2,117,216,1)",
+                        pointRadius: 5,
+                        pointBackgroundColor: "rgba(2,117,216,1)",
+                        pointBorderColor: "rgba(255,255,255,0.8)",
+                        pointHoverRadius: 5,
+                        pointHoverBackgroundColor: "rgba(2,117,216,1)",
+                        pointHitRadius: 20,
+                        pointBorderWidth: 2,
+                        data: [20, 20, 10, 30, 30, 28, 25, 25, 20, 21, 20, 22, 23],
+                    }],
+                },
+                options: {
+                    scales: {
+                        xAxes: [{
+                            time: {
+                                unit: 'date'
+                            },
+                            gridLines: {
+                                display: false
+                            },
+                            ticks: {
+                                maxTicksLimit: 7
+                            }
+                        }],
+                        yAxes: [{
+                            ticks: {
+                                min: 0,
+                                max: 40,
+                                maxTicksLimit: 5
+                            },
+                            gridLines: {
+                                color: "rgba(0, 0, 0, .125)",
+                            }
+                        }],
+                    },
+                    legend: {
+                        display: false
+                    }
+                }
+            });
+            var rainGaugeEx = document.getElementById("rainGaugeChart");
+            var myRainGaugeChart = new Chart(rainGaugeEx, {
                 type: 'line',
                 data: {
                     labels: ["07:00 AM", "08:00 AM", "09:00 AM", "10:00 AM", "11:00 AM", "12:00 PM", "01:00 PM", "02:00 PM", "03:00 PM", "04:00 PM", "05:00 PM", "06:00 PM", "07:00 PM"],
