@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Mar 19, 2018 at 01:00 AM
+-- Generation Time: Mar 20, 2018 at 04:25 AM
 -- Server version: 10.1.28-MariaDB
 -- PHP Version: 5.6.32
 
@@ -25,33 +25,6 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `rain_gauge`
---
-
-CREATE TABLE `rain_gauge` (
-  `id` int(11) NOT NULL,
-  `rain_gauge` float DEFAULT NULL,
-  `date` varchar(20) DEFAULT NULL,
-  `time` varchar(20) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `temperature_humidity`
---
-
-CREATE TABLE `temperature_humidity` (
-  `id` int(11) NOT NULL,
-  `temperature` float DEFAULT NULL,
-  `humidity` float DEFAULT NULL,
-  `date` varchar(20) DEFAULT NULL,
-  `time` varchar(20) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `traffic_picture`
 --
 
@@ -65,26 +38,17 @@ CREATE TABLE `traffic_picture` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `wind_direction_speed`
+-- Table structure for table `weather`
 --
 
-CREATE TABLE `wind_direction_speed` (
+CREATE TABLE `weather` (
   `id` int(11) NOT NULL,
-  `speed` float DEFAULT NULL,
-  `direction` varchar(10) DEFAULT NULL,
-  `date` varchar(20) DEFAULT NULL,
-  `time` varchar(20) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `wind_pressure`
---
-
-CREATE TABLE `wind_pressure` (
-  `id` int(11) NOT NULL,
-  `pressure` float DEFAULT NULL,
+  `temperature` float DEFAULT NULL,
+  `humidity` float DEFAULT NULL,
+  `wind_pressure` float DEFAULT NULL,
+  `wind_speed` float DEFAULT NULL,
+  `wind_direction` float DEFAULT NULL,
+  `rain_gauge` float DEFAULT NULL,
   `date` varchar(20) DEFAULT NULL,
   `time` varchar(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -94,50 +58,20 @@ CREATE TABLE `wind_pressure` (
 --
 
 --
--- Indexes for table `rain_gauge`
---
-ALTER TABLE `rain_gauge`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `temperature_humidity`
---
-ALTER TABLE `temperature_humidity`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Indexes for table `traffic_picture`
 --
 ALTER TABLE `traffic_picture`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `wind_direction_speed`
+-- Indexes for table `weather`
 --
-ALTER TABLE `wind_direction_speed`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `wind_pressure`
---
-ALTER TABLE `wind_pressure`
+ALTER TABLE `weather`
   ADD PRIMARY KEY (`id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
 --
-
---
--- AUTO_INCREMENT for table `rain_gauge`
---
-ALTER TABLE `rain_gauge`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `temperature_humidity`
---
-ALTER TABLE `temperature_humidity`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `traffic_picture`
@@ -146,15 +80,9 @@ ALTER TABLE `traffic_picture`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `wind_direction_speed`
+-- AUTO_INCREMENT for table `weather`
 --
-ALTER TABLE `wind_direction_speed`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `wind_pressure`
---
-ALTER TABLE `wind_pressure`
+ALTER TABLE `weather`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
