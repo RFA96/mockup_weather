@@ -1020,12 +1020,12 @@
       <DataType>varchar(100)|0</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="260" parent="256" name="date">
+    <column id="260" parent="256" name="tanggal">
       <Position>3</Position>
       <DataType>varchar(20)|0</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="261" parent="256" name="time">
+    <column id="261" parent="256" name="jam">
       <Position>4</Position>
       <DataType>varchar(20)|0</DataType>
       <ColumnKind>normal</ColumnKind>
@@ -1072,12 +1072,12 @@
       <DataType>float|0</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="270" parent="257" name="date">
+    <column id="270" parent="257" name="tanggal">
       <Position>8</Position>
       <DataType>date|0</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="271" parent="257" name="time">
+    <column id="271" parent="257" name="jam">
       <Position>9</Position>
       <DataType>time|0</DataType>
       <ColumnKind>normal</ColumnKind>

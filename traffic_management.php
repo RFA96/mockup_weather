@@ -101,17 +101,51 @@
                         <span class="carousel-control-next-icon"></span>
                     </a>
                 </div><br>
+                <div>
+                    <div class="row text-center text-lg-left">
 
-                <!-- Grid Images -->
-                <div class="row">
-                    <div class="col-xl-4 col-sm-6 mb-3">
-                        <div class="card" style="width: 400px">
-                            <img class="card-img-top" src="https://cdn.iconscout.com/public/images/icon/free/png-512/avatar-user-teacher-312a499a08079a12-512x512.png" alt="Card image" style="width:100%">
+                        <div class="col-lg-3 col-md-4 col-xs-6">
+                            <a href="#" class="d-block mb-4">
+                                <img class="img-fluid img-thumbnail" src="http://placehold.it/400x300" alt="">
+                            </a>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-xs-6">
+                            <a href="#" class="d-block mb-4">
+                                <img class="img-fluid img-thumbnail" src="http://placehold.it/400x300" alt="">
+                            </a>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-xs-6">
+                            <a href="#" class="d-block mb-4">
+                                <img class="img-fluid img-thumbnail" src="http://placehold.it/400x300" alt="">
+                            </a>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-xs-6">
+                            <a href="#" class="d-block mb-4">
+                                <img class="img-fluid img-thumbnail" src="http://placehold.it/400x300" alt="">
+                            </a>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-xs-6">
+                            <a href="#" class="d-block mb-4">
+                                <img class="img-fluid img-thumbnail" src="http://placehold.it/400x300" alt="">
+                            </a>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-xs-6">
+                            <a href="#" class="d-block mb-4">
+                                <img class="img-fluid img-thumbnail" src="http://placehold.it/400x300" alt="">
+                            </a>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-xs-6">
+                            <a href="#" class="d-block mb-4">
+                                <img class="img-fluid img-thumbnail" src="http://placehold.it/400x300" alt="">
+                            </a>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-xs-6">
+                            <a href="#" class="d-block mb-4">
+                                <img class="img-fluid img-thumbnail" src="http://placehold.it/400x300" alt="">
+                            </a>
                         </div>
                     </div>
-
                 </div>
-
             </div>
         </div>
         <?php include "footer.php"?>

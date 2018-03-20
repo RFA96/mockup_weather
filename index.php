@@ -220,73 +220,12 @@
             }
             setInterval(startTime, 0);
         </script>
-<!--        <script type="text/javascript">-->
-<!--            function makeChart(arg1, arg2, arg3,arg4, arg5, arg6, arg7, arg8, arg9, arg10)-->
-<!--            {-->
-<!--                var ctx = document.getElementById("myAreaChart");-->
-<!--                var myLineChart = new Chart(ctx, {-->
-<!--                    type: 'line',-->
-<!--                    data: {-->
-<!--                        labels: ["07:00 AM", "08:00 AM", "09:00 AM", "10:00 AM", "11:00 AM", "12:00 PM", "01:00 PM", "02:00 PM", "03:00 PM", "04:00 PM", "05:00 PM", "06:00 PM", "07:00 PM"],-->
-<!--                        datasets: [{-->
-<!--                            label: "Sessions",-->
-<!--                            lineTension: 0.3,-->
-<!--                            backgroundColor: "rgba(2,117,216,0.2)",-->
-<!--                            borderColor: "rgba(2,117,216,1)",-->
-<!--                            pointRadius: 5,-->
-<!--                            pointBackgroundColor: "rgba(2,117,216,1)",-->
-<!--                            pointBorderColor: "rgba(255,255,255,0.8)",-->
-<!--                            pointHoverRadius: 5,-->
-<!--                            pointHoverBackgroundColor: "rgba(2,117,216,1)",-->
-<!--                            pointHitRadius: 20,-->
-<!--                            pointBorderWidth: 2,-->
-<!--                            data: [arg1, arg2, arg3,arg4, arg5, arg6, arg7, arg8, arg9, arg10],-->
-<!--                        }],-->
-<!--                    },-->
-<!--                    options: {-->
-<!--                        scales: {-->
-<!--                            xAxes: [{-->
-<!--                                time: {-->
-<!--                                    unit: 'date'-->
-<!--                                },-->
-<!--                                gridLines: {-->
-<!--                                    display: false-->
-<!--                                },-->
-<!--                                ticks: {-->
-<!--                                    maxTicksLimit: 7-->
-<!--                                }-->
-<!--                            }],-->
-<!--                            yAxes: [{-->
-<!--                                ticks: {-->
-<!--                                    min: 0,-->
-<!--                                    max: 40,-->
-<!--                                    maxTicksLimit: 5-->
-<!--                                },-->
-<!--                                gridLines: {-->
-<!--                                    color: "rgba(0, 0, 0, .125)",-->
-<!--                                }-->
-<!--                            }],-->
-<!--                        },-->
-<!--                        legend: {-->
-<!--                            display: false-->
-<!--                        }-->
-<!--                    }-->
-<!--                });-->
-<!--            }-->
-<!--        </script>-->
-        <?php
-            $qT = mysql_query("SELECT temperature, time FROM weather WHERE date = ".date("Y-m-d"));
-            while($dT = mysql_fetch_assoc($qT))
-            {
-                echo $dT['temperature'];
-            }
-        ?>
         <script type="text/javascript">
             var ctx = document.getElementById("myAreaChart");
             var myLineChart = new Chart(ctx, {
                 type: 'line',
                 data: {
-                    labels: [],
+                    labels: ,
                     datasets: [{
                         label: "Sessions",
                         lineTension: 0.3,
@@ -299,7 +238,7 @@
                         pointHoverBackgroundColor: "rgba(2,117,216,1)",
                         pointHitRadius: 20,
                         pointBorderWidth: 2,
-                        data: [20, 32, 33, 34, 33, 31, 30, 29, 27, 28, 28, 27, 26],
+                        data: <?php include "data_temperature.php"?>,
                     }],
                 },
                 options: {
@@ -318,7 +257,7 @@
                         yAxes: [{
                             ticks: {
                                 min: 0,
-                                max: 35,
+                                max: 33,
                                 maxTicksLimit: 5
                             },
                             gridLines: {
