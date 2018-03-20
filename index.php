@@ -5,6 +5,7 @@
     <head>
         <title>MOCKUP WEB</title>
         <?php include "materials_css.php"?>
+        <?php include "materials_js.php"?>
     </head>
     <body class="fixed-nav sticky-footer bg-dark" id="page-top">
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
@@ -65,7 +66,7 @@
                                 </div>
                                 <div class="mr-5">26 &#8451;</div>
                             </div>
-                            <a class="card-footer text-white clearfix small z-1" href="#" id="temperatureShow">
+                            <a class="card-footer text-white clearfix small z-1" href="#" onclick="makeChart(20, 20, 10, 30, 30, 28, 25, 25, 20, 21, 20, 22, 23)" style="border: 0px" id="temperatureShow">
                                 <span class="float-left">Temperature Details</span>
                                 <span class="float-right">
                                     <i class="fa fa-angle-right"></i>
@@ -140,50 +141,50 @@
                         </div>
                     </div>
                 </div>
-                <div class="card mb-3" id="cobaAja" style="display: none">
+                <div class="card mb-3" style="display: none">
                     <div class="card-header">
-                        <i class="fa fa-thermometer"></i> Temperature Chart
+                        <i class="fa fa-thermometer"></i> Data Chart
                     </div>
                     <div class="card-body">
                         <canvas id="myAreaChart" width="100%" height="30"></canvas>
                     </div>
+                    <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
                 </div>
-                <div class="card mb-3" id="cobaAja1" style="display: none">
-                    <div class="card-header">
-                        <i class="fa fa-shower"></i> Humidity Chart
-                    </div>
-                    <div class="card-body">
-                        <canvas id="humidityChart" width="100%" height="30"></canvas>
-                    </div>
-                </div>
-                <div class="card mb-3" id="cobaAja2" style="display: none">
-                    <div class="card-header">
-                        <i class="fa fa-leaf"></i> Wind Speed Chart
-                    </div>
-                    <div class="card-body">
-                        <canvas id="windSpeedChart" width="100%" height="30"></canvas>
-                    </div>
-                </div>
-                <div class="card mb-3" id="cobaAja3" style="display: none">
-                    <div class="card-header">
-                        <i class="fa fa-fighter-jet"></i> Wind Pressure Chart
-                    </div>
-                    <div class="card-body">
-                        <canvas id="windPressureChart" width="100%" height="30"></canvas>
-                    </div>
-                </div>
-                <div class="card mb-3" id="cobaAja4" style="display: none">
-                    <div class="card-header">
-                        <i class="fa fa-glass"></i> Rain Gauge Chart
-                    </div>
-                    <div class="card-body">
-                        <canvas id="rainGaugeChart" width="100%" height="30"></canvas>
-                    </div>
-                </div>
+<!--                <div class="card mb-3" id="cobaAja1" style="display: none">-->
+<!--                    <div class="card-header">-->
+<!--                        <i class="fa fa-shower"></i> Humidity Chart-->
+<!--                    </div>-->
+<!--                    <div class="card-body">-->
+<!--                        <canvas id="humidityChart" width="100%" height="30"></canvas>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="card mb-3" id="cobaAja2" style="display: none">-->
+<!--                    <div class="card-header">-->
+<!--                        <i class="fa fa-leaf"></i> Wind Speed Chart-->
+<!--                    </div>-->
+<!--                    <div class="card-body">-->
+<!--                        <canvas id="windSpeedChart" width="100%" height="30"></canvas>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="card mb-3" id="cobaAja3" style="display: none">-->
+<!--                    <div class="card-header">-->
+<!--                        <i class="fa fa-fighter-jet"></i> Wind Pressure Chart-->
+<!--                    </div>-->
+<!--                    <div class="card-body">-->
+<!--                        <canvas id="windPressureChart" width="100%" height="30"></canvas>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="card mb-3" id="cobaAja4" style="display: none">-->
+<!--                    <div class="card-header">-->
+<!--                        <i class="fa fa-glass"></i> Rain Gauge Chart-->
+<!--                    </div>-->
+<!--                    <div class="card-body">-->
+<!--                        <canvas id="rainGaugeChart" width="100%" height="30"></canvas>-->
+<!--                    </div>-->
+<!--                </div>-->
             </div>
         </div>
         <?php include "footer.php"?>
-        <?php include "materials_js.php"?>
         <script>
             $(document).ready(function () {
                 $('#temperatureShow').click(function () {
@@ -229,21 +230,52 @@
             {
                 var ctx = document.getElementById("myAreaChart");
                 var myLineChart = new Chart(ctx, {
-                   type: 'line',
-                   data: [{
-                       label: "Sessions",
-                       lineTension: 0.3,
-                       backgroundColor: "rgba(2,117,216,0.2)",
-                       borderColor: "rgba(2,117,216,1)",
-                       pointRadius: 5,
-                       pointBackgroundColor: "rgba(2,117,216,1)",
-                       pointBorderColor: "rgba(255,255,255,0.8)",
-                       pointHoverRadius: 5,
-                       pointHoverBackgroundColor: "rgba(2,117,216,1)",
-                       pointHitRadius: 20,
-                       pointBorderWidth: 2,
-                       data: [arg1, arg2, arg3,arg4, arg5, arg6, arg7, arg8, arg9, arg10],
-                   }],
+                    type: 'line',
+                    data: {
+                        labels: ["07:00 AM", "08:00 AM", "09:00 AM", "10:00 AM", "11:00 AM", "12:00 PM", "01:00 PM", "02:00 PM", "03:00 PM", "04:00 PM", "05:00 PM", "06:00 PM", "07:00 PM"],
+                        datasets: [{
+                            label: "Sessions",
+                            lineTension: 0.3,
+                            backgroundColor: "rgba(2,117,216,0.2)",
+                            borderColor: "rgba(2,117,216,1)",
+                            pointRadius: 5,
+                            pointBackgroundColor: "rgba(2,117,216,1)",
+                            pointBorderColor: "rgba(255,255,255,0.8)",
+                            pointHoverRadius: 5,
+                            pointHoverBackgroundColor: "rgba(2,117,216,1)",
+                            pointHitRadius: 20,
+                            pointBorderWidth: 2,
+                            data: [arg1, arg2, arg3,arg4, arg5, arg6, arg7, arg8, arg9, arg10],
+                        }],
+                    },
+                    options: {
+                        scales: {
+                            xAxes: [{
+                                time: {
+                                    unit: 'date'
+                                },
+                                gridLines: {
+                                    display: false
+                                },
+                                ticks: {
+                                    maxTicksLimit: 7
+                                }
+                            }],
+                            yAxes: [{
+                                ticks: {
+                                    min: 0,
+                                    max: 40,
+                                    maxTicksLimit: 5
+                                },
+                                gridLines: {
+                                    color: "rgba(0, 0, 0, .125)",
+                                }
+                            }],
+                        },
+                        legend: {
+                            display: false
+                        }
+                    }
                 });
             }
         </script>
