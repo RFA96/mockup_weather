@@ -10,6 +10,13 @@
     <head>
         <title>Traffic Management System</title>
         <?php include "materials_css.php";?>
+        <style>
+            img
+            {
+                width: 100%;
+                height: 500px;
+            }
+        </style>
     </head>
     <body class="fixed-nav sticky-footer bg-dark" id="page-top">
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
@@ -61,26 +68,50 @@
                     </li>
                     <li class="breadcrumb-item active">Traffic Management Systems</li>
                 </ol>
-                <div class="row">
-                    <div class="col-xl-12 col-sm-12 mb-3">
-                        <div id="demo" class="carousel slide" data-ride="carousel">
-                            <ul class="carousel-indicators">
-                                <li data-target="#demo" data-slide-to="0" class="active"></li>
-                                <li data-target="#demo" data-slide-to="1"></li>
-                                <li data-target="#demo" data-slide-to="2"></li>
-                            </ul>
-                            <div class="carousel-inner">
-                                <div class="carousel-item active">
-                                    <img src="https://upload.wikimedia.org/wikipedia/commons/3/3e/I-80_Eastshore_Fwy.jpg" alt="Traffic" width="1100" height="500">
-                                    <div class="carousel-caption">
-                                        <h3>08:30 AM</h3>
-                                        <p>Moderate traffic</p>
-                                    </div>
-                                </div>
+                <div id="demo" class="carousel slide" data-ride="carousel">
+                    <ul class="carousel-indicators">
+                        <li data-target="#demo" data-slide-to="0" class="active"></li>
+                        <li data-target="#demo" data-slide-to="1"></li>
+                        <li data-target="#demo" data-slide-to="2"></li>
+                    </ul>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/3/3e/I-80_Eastshore_Fwy.jpg" alt="Traffic">
+                            <div class="carousel-caption">
+                                <h3>08:30 AM</h3>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <img src="http://www.deeproot.com/blog/wp-content/uploads/stories/2017/06/2715306741_3106f88cf9_b.jpg" alt="Traffic">
+                            <div class="carousel-caption">
+                                <h3>09:00 AM</h3>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <img src="http://d254andzyoxz3f.cloudfront.net/trafficjams-ss-saopaulo.jpg" alt="Traffic">
+                            <div class="carousel-caption">
+                                <h3>09:30 AM</h3>
                             </div>
                         </div>
                     </div>
+                    <a class="carousel-control-prev" href="#demo" data-slide="prev">
+                        <span class="carousel-control-prev-icon"></span>
+                    </a>
+                    <a class="carousel-control-next" href="#demo" data-slide="next">
+                        <span class="carousel-control-next-icon"></span>
+                    </a>
+                </div><br>
+
+                <!-- Grid Images -->
+                <div class="row">
+                    <div class="col-xl-4 col-sm-6 mb-3">
+                        <div class="card" style="width: 400px">
+                            <img class="card-img-top" src="https://cdn.iconscout.com/public/images/icon/free/png-512/avatar-user-teacher-312a499a08079a12-512x512.png" alt="Card image" style="width:100%">
+                        </div>
+                    </div>
+
                 </div>
+
             </div>
         </div>
         <?php include "footer.php"?>
