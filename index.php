@@ -1,11 +1,10 @@
 <?php
-
+    include "koneksi.php";
 ?>
 <html>
     <head>
         <title>MOCKUP WEB</title>
         <?php include "materials_css.php"?>
-        <?php include "materials_js.php"?>
     </head>
     <body class="fixed-nav sticky-footer bg-dark" id="page-top">
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
@@ -41,11 +40,6 @@
                             <i class="fa fa-fw fa-clock-o"></i>
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" data-toggle="modal" data-target="#exampleModal">
-                            <i class="fa fa-fw fa-sign-out"></i> Logout
-                        </a>
-                    </li>
                 </ul>
             </div>
         </nav>
@@ -66,7 +60,7 @@
                                 </div>
                                 <div class="mr-5">26 &#8451;</div>
                             </div>
-                            <a class="card-footer text-white clearfix small z-1" href="#" onclick="makeChart(20, 20, 10, 30, 30, 28, 25, 25, 20, 21, 20, 22, 23)" style="border: 0px" id="temperatureShow">
+                            <a class="card-footer text-white clearfix small z-1" href="#" id="temperatureShow">
                                 <span class="float-left">Temperature Details</span>
                                 <span class="float-right">
                                     <i class="fa fa-angle-right"></i>
@@ -141,50 +135,51 @@
                         </div>
                     </div>
                 </div>
-                <div class="card mb-3" style="display: none">
+                <div class="card mb-3" style="display: none" id="cobaAja">
                     <div class="card-header">
-                        <i class="fa fa-thermometer"></i> Data Chart
+                        <i class="fa fa-thermometer"></i> Temperature Chart
                     </div>
                     <div class="card-body">
                         <canvas id="myAreaChart" width="100%" height="30"></canvas>
                     </div>
                     <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
                 </div>
-<!--                <div class="card mb-3" id="cobaAja1" style="display: none">-->
-<!--                    <div class="card-header">-->
-<!--                        <i class="fa fa-shower"></i> Humidity Chart-->
-<!--                    </div>-->
-<!--                    <div class="card-body">-->
-<!--                        <canvas id="humidityChart" width="100%" height="30"></canvas>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--                <div class="card mb-3" id="cobaAja2" style="display: none">-->
-<!--                    <div class="card-header">-->
-<!--                        <i class="fa fa-leaf"></i> Wind Speed Chart-->
-<!--                    </div>-->
-<!--                    <div class="card-body">-->
-<!--                        <canvas id="windSpeedChart" width="100%" height="30"></canvas>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--                <div class="card mb-3" id="cobaAja3" style="display: none">-->
-<!--                    <div class="card-header">-->
-<!--                        <i class="fa fa-fighter-jet"></i> Wind Pressure Chart-->
-<!--                    </div>-->
-<!--                    <div class="card-body">-->
-<!--                        <canvas id="windPressureChart" width="100%" height="30"></canvas>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--                <div class="card mb-3" id="cobaAja4" style="display: none">-->
-<!--                    <div class="card-header">-->
-<!--                        <i class="fa fa-glass"></i> Rain Gauge Chart-->
-<!--                    </div>-->
-<!--                    <div class="card-body">-->
-<!--                        <canvas id="rainGaugeChart" width="100%" height="30"></canvas>-->
-<!--                    </div>-->
-<!--                </div>-->
+                <div class="card mb-3" id="cobaAja1" style="display: none">
+                    <div class="card-header">
+                        <i class="fa fa-shower"></i> Humidity Chart
+                    </div>
+                    <div class="card-body">
+                        <canvas id="humidityChart" width="100%" height="30"></canvas>
+                    </div>
+                </div>
+                <div class="card mb-3" id="cobaAja2" style="display: none">
+                    <div class="card-header">
+                        <i class="fa fa-leaf"></i> Wind Speed Chart
+                    </div>
+                    <div class="card-body">
+                        <canvas id="windSpeedChart" width="100%" height="30"></canvas>
+                    </div>
+                </div>
+                <div class="card mb-3" id="cobaAja3" style="display: none">
+                    <div class="card-header">
+                        <i class="fa fa-fighter-jet"></i> Wind Pressure Chart
+                    </div>
+                    <div class="card-body">
+                        <canvas id="windPressureChart" width="100%" height="30"></canvas>
+                    </div>
+                </div>
+                <div class="card mb-3" id="cobaAja4" style="display: none">
+                    <div class="card-header">
+                        <i class="fa fa-glass"></i> Rain Gauge Chart
+                    </div>
+                    <div class="card-body">
+                        <canvas id="rainGaugeChart" width="100%" height="30"></canvas>
+                    </div>
+                </div>
             </div>
         </div>
         <?php include "footer.php"?>
+        <?php include "materials_js.php"?>
         <script>
             $(document).ready(function () {
                 $('#temperatureShow').click(function () {
@@ -225,306 +220,313 @@
             }
             setInterval(startTime, 0);
         </script>
-        <script type="text/javascript">
-            function makeChart(arg1, arg2, arg3,arg4, arg5, arg6, arg7, arg8, arg9, arg10)
+<!--        <script type="text/javascript">-->
+<!--            function makeChart(arg1, arg2, arg3,arg4, arg5, arg6, arg7, arg8, arg9, arg10)-->
+<!--            {-->
+<!--                var ctx = document.getElementById("myAreaChart");-->
+<!--                var myLineChart = new Chart(ctx, {-->
+<!--                    type: 'line',-->
+<!--                    data: {-->
+<!--                        labels: ["07:00 AM", "08:00 AM", "09:00 AM", "10:00 AM", "11:00 AM", "12:00 PM", "01:00 PM", "02:00 PM", "03:00 PM", "04:00 PM", "05:00 PM", "06:00 PM", "07:00 PM"],-->
+<!--                        datasets: [{-->
+<!--                            label: "Sessions",-->
+<!--                            lineTension: 0.3,-->
+<!--                            backgroundColor: "rgba(2,117,216,0.2)",-->
+<!--                            borderColor: "rgba(2,117,216,1)",-->
+<!--                            pointRadius: 5,-->
+<!--                            pointBackgroundColor: "rgba(2,117,216,1)",-->
+<!--                            pointBorderColor: "rgba(255,255,255,0.8)",-->
+<!--                            pointHoverRadius: 5,-->
+<!--                            pointHoverBackgroundColor: "rgba(2,117,216,1)",-->
+<!--                            pointHitRadius: 20,-->
+<!--                            pointBorderWidth: 2,-->
+<!--                            data: [arg1, arg2, arg3,arg4, arg5, arg6, arg7, arg8, arg9, arg10],-->
+<!--                        }],-->
+<!--                    },-->
+<!--                    options: {-->
+<!--                        scales: {-->
+<!--                            xAxes: [{-->
+<!--                                time: {-->
+<!--                                    unit: 'date'-->
+<!--                                },-->
+<!--                                gridLines: {-->
+<!--                                    display: false-->
+<!--                                },-->
+<!--                                ticks: {-->
+<!--                                    maxTicksLimit: 7-->
+<!--                                }-->
+<!--                            }],-->
+<!--                            yAxes: [{-->
+<!--                                ticks: {-->
+<!--                                    min: 0,-->
+<!--                                    max: 40,-->
+<!--                                    maxTicksLimit: 5-->
+<!--                                },-->
+<!--                                gridLines: {-->
+<!--                                    color: "rgba(0, 0, 0, .125)",-->
+<!--                                }-->
+<!--                            }],-->
+<!--                        },-->
+<!--                        legend: {-->
+<!--                            display: false-->
+<!--                        }-->
+<!--                    }-->
+<!--                });-->
+<!--            }-->
+<!--        </script>-->
+        <?php
+            $qT = mysql_query("SELECT temperature, time FROM weather WHERE date = ".date("Y-m-d"));
+            while($dT = mysql_fetch_assoc($qT))
             {
-                var ctx = document.getElementById("myAreaChart");
-                var myLineChart = new Chart(ctx, {
-                    type: 'line',
-                    data: {
-                        labels: ["07:00 AM", "08:00 AM", "09:00 AM", "10:00 AM", "11:00 AM", "12:00 PM", "01:00 PM", "02:00 PM", "03:00 PM", "04:00 PM", "05:00 PM", "06:00 PM", "07:00 PM"],
-                        datasets: [{
-                            label: "Sessions",
-                            lineTension: 0.3,
-                            backgroundColor: "rgba(2,117,216,0.2)",
-                            borderColor: "rgba(2,117,216,1)",
-                            pointRadius: 5,
-                            pointBackgroundColor: "rgba(2,117,216,1)",
-                            pointBorderColor: "rgba(255,255,255,0.8)",
-                            pointHoverRadius: 5,
-                            pointHoverBackgroundColor: "rgba(2,117,216,1)",
-                            pointHitRadius: 20,
-                            pointBorderWidth: 2,
-                            data: [arg1, arg2, arg3,arg4, arg5, arg6, arg7, arg8, arg9, arg10],
+                echo $dT['temperature'];
+            }
+        ?>
+        <script type="text/javascript">
+            var ctx = document.getElementById("myAreaChart");
+            var myLineChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: [],
+                    datasets: [{
+                        label: "Sessions",
+                        lineTension: 0.3,
+                        backgroundColor: "rgba(2,117,216,0.2)",
+                        borderColor: "rgba(2,117,216,1)",
+                        pointRadius: 5,
+                        pointBackgroundColor: "rgba(2,117,216,1)",
+                        pointBorderColor: "rgba(255,255,255,0.8)",
+                        pointHoverRadius: 5,
+                        pointHoverBackgroundColor: "rgba(2,117,216,1)",
+                        pointHitRadius: 20,
+                        pointBorderWidth: 2,
+                        data: [20, 32, 33, 34, 33, 31, 30, 29, 27, 28, 28, 27, 26],
+                    }],
+                },
+                options: {
+                    scales: {
+                        xAxes: [{
+                            time: {
+                                unit: 'date'
+                            },
+                            gridLines: {
+                                display: false
+                            },
+                            ticks: {
+                                maxTicksLimit: 7
+                            }
+                        }],
+                        yAxes: [{
+                            ticks: {
+                                min: 0,
+                                max: 35,
+                                maxTicksLimit: 5
+                            },
+                            gridLines: {
+                                color: "rgba(0, 0, 0, .125)",
+                            }
                         }],
                     },
-                    options: {
-                        scales: {
-                            xAxes: [{
-                                time: {
-                                    unit: 'date'
-                                },
-                                gridLines: {
-                                    display: false
-                                },
-                                ticks: {
-                                    maxTicksLimit: 7
-                                }
-                            }],
-                            yAxes: [{
-                                ticks: {
-                                    min: 0,
-                                    max: 40,
-                                    maxTicksLimit: 5
-                                },
-                                gridLines: {
-                                    color: "rgba(0, 0, 0, .125)",
-                                }
-                            }],
-                        },
-                        legend: {
-                            display: false
-                        }
+                    legend: {
+                        display: false
                     }
-                });
-            }
+                }
+            });
+           var humidityEx = document.getElementById("humidityChart");
+           var myHumidityChart = new Chart(humidityEx, {
+               type: 'line',
+               data: {
+                   labels: ["07:00 AM", "08:00 AM", "09:00 AM", "10:00 AM", "11:00 AM", "12:00 PM", "01:00 PM", "02:00 PM", "03:00 PM", "04:00 PM", "05:00 PM", "06:00 PM", "07:00 PM"],
+                   datasets: [{
+                       label: "Sessions",
+                       lineTension: 0.3,
+                       backgroundColor: "rgba(2,117,216,0.2)",
+                       borderColor: "rgba(2,117,216,1)",
+                       pointRadius: 5,
+                       pointBackgroundColor: "rgba(2,117,216,1)",
+                       pointBorderColor: "rgba(255,255,255,0.8)",
+                       pointHoverRadius: 5,
+                       pointHoverBackgroundColor: "rgba(2,117,216,1)",
+                       pointHitRadius: 20,
+                       pointBorderWidth: 2,
+                       data: [85, 80, 75, 77, 74, 74, 75, 72, 77, 85, 85, 80, 75],
+                   }],
+               },
+               options: {
+                   scales: {
+                       xAxes: [{
+                           time: {
+                               unit: 'date'
+                           },
+                           gridLines: {
+                               display: false
+                           },
+                           ticks: {
+                               maxTicksLimit: 7
+                           }
+                       }],
+                       yAxes: [{
+                           ticks: {
+                               min: 0,
+                               max: 100,
+                               maxTicksLimit: 5
+                           },
+                           gridLines: {
+                               color: "rgba(0, 0, 0, .125)",
+                           }
+                       }],
+                   },
+                   legend: {
+                       display: false
+                   }
+               }
+           });
+            var windSpeedEx = document.getElementById("windSpeedChart");
+            var myWindSpeedChart = new Chart(windSpeedEx, {
+                type: 'line',
+                data: {
+                    labels: ["07:00 AM", "08:00 AM", "09:00 AM", "10:00 AM", "11:00 AM", "12:00 PM", "01:00 PM", "02:00 PM", "03:00 PM", "04:00 PM", "05:00 PM", "06:00 PM", "07:00 PM"],
+                    datasets: [{
+                        label: "Sessions",
+                        lineTension: 0.3,
+                        backgroundColor: "rgba(2,117,216,0.2)",
+                        borderColor: "rgba(2,117,216,1)",
+                        pointRadius: 5,
+                        pointBackgroundColor: "rgba(2,117,216,1)",
+                        pointBorderColor: "rgba(255,255,255,0.8)",
+                        pointHoverRadius: 5,
+                        pointHoverBackgroundColor: "rgba(2,117,216,1)",
+                        pointHitRadius: 20,
+                        pointBorderWidth: 2,
+                        data: [6, 6, 6, 4, 4, 4, 4, 5, 5, 6, 7, 6, 6],
+                    }],
+                },
+                options: {
+                    scales: {
+                        xAxes: [{
+                            time: {
+                                unit: 'date'
+                            },
+                            gridLines: {
+                                display: false
+                            },
+                            ticks: {
+                                maxTicksLimit: 7
+                            }
+                        }],
+                        yAxes: [{
+                            ticks: {
+                                min: 0,
+                                max: 10,
+                                maxTicksLimit: 5
+                            },
+                            gridLines: {
+                                color: "rgba(0, 0, 0, .125)",
+                            }
+                        }],
+                    },
+                    legend: {
+                        display: false
+                    }
+                }
+            });
+            var windPressureEx = document.getElementById("windPressureChart");
+            var myWindPressureChart = new Chart(windPressureEx, {
+                type: 'line',
+                data: {
+                    labels: ["07:00 AM", "08:00 AM", "09:00 AM", "10:00 AM", "11:00 AM", "12:00 PM", "01:00 PM", "02:00 PM", "03:00 PM", "04:00 PM", "05:00 PM", "06:00 PM", "07:00 PM"],
+                    datasets: [{
+                        label: "Sessions",
+                        lineTension: 0.3,
+                        backgroundColor: "rgba(2,117,216,0.2)",
+                        borderColor: "rgba(2,117,216,1)",
+                        pointRadius: 5,
+                        pointBackgroundColor: "rgba(2,117,216,1)",
+                        pointBorderColor: "rgba(255,255,255,0.8)",
+                        pointHoverRadius: 5,
+                        pointHoverBackgroundColor: "rgba(2,117,216,1)",
+                        pointHitRadius: 20,
+                        pointBorderWidth: 2,
+                        data: [20, 20, 10, 30, 30, 28, 25, 25, 20, 21, 20, 22, 23],
+                    }],
+                },
+                options: {
+                    scales: {
+                        xAxes: [{
+                            time: {
+                                unit: 'date'
+                            },
+                            gridLines: {
+                                display: false
+                            },
+                            ticks: {
+                                maxTicksLimit: 7
+                            }
+                        }],
+                        yAxes: [{
+                            ticks: {
+                                min: 0,
+                                max: 40,
+                                maxTicksLimit: 5
+                            },
+                            gridLines: {
+                                color: "rgba(0, 0, 0, .125)",
+                            }
+                        }],
+                    },
+                    legend: {
+                        display: false
+                    }
+                }
+            });
+            var rainGaugeEx = document.getElementById("rainGaugeChart");
+            var myRainGaugeChart = new Chart(rainGaugeEx, {
+                type: 'line',
+                data: {
+                    labels: ["07:00 AM", "08:00 AM", "09:00 AM", "10:00 AM", "11:00 AM", "12:00 PM", "01:00 PM", "02:00 PM", "03:00 PM", "04:00 PM", "05:00 PM", "06:00 PM", "07:00 PM"],
+                    datasets: [{
+                        label: "Sessions",
+                        lineTension: 0.3,
+                        backgroundColor: "rgba(2,117,216,0.2)",
+                        borderColor: "rgba(2,117,216,1)",
+                        pointRadius: 5,
+                        pointBackgroundColor: "rgba(2,117,216,1)",
+                        pointBorderColor: "rgba(255,255,255,0.8)",
+                        pointHoverRadius: 5,
+                        pointHoverBackgroundColor: "rgba(2,117,216,1)",
+                        pointHitRadius: 20,
+                        pointBorderWidth: 2,
+                        data: [20, 20, 10, 30, 30, 28, 25, 25, 20, 21, 20, 22, 23],
+                    }],
+                },
+                options: {
+                    scales: {
+                        xAxes: [{
+                            time: {
+                                unit: 'date'
+                            },
+                            gridLines: {
+                                display: false
+                            },
+                            ticks: {
+                                maxTicksLimit: 7
+                            }
+                        }],
+                        yAxes: [{
+                            ticks: {
+                                min: 0,
+                                max: 40,
+                                maxTicksLimit: 5
+                            },
+                            gridLines: {
+                                color: "rgba(0, 0, 0, .125)",
+                            }
+                        }],
+                    },
+                    legend: {
+                        display: false
+                    }
+                }
+            });
         </script>
-<!--        <script type="text/javascript">-->
-<!--            var ctx = document.getElementById("myAreaChart");-->
-<!--            var myLineChart = new Chart(ctx, {-->
-<!--                type: 'line',-->
-<!--                data: {-->
-<!--                    labels: ["07:00 AM", "08:00 AM", "09:00 AM", "10:00 AM", "11:00 AM", "12:00 PM", "01:00 PM", "02:00 PM", "03:00 PM", "04:00 PM", "05:00 PM", "06:00 PM", "07:00 PM"],-->
-<!--                    datasets: [{-->
-<!--                        label: "Sessions",-->
-<!--                        lineTension: 0.3,-->
-<!--                        backgroundColor: "rgba(2,117,216,0.2)",-->
-<!--                        borderColor: "rgba(2,117,216,1)",-->
-<!--                        pointRadius: 5,-->
-<!--                        pointBackgroundColor: "rgba(2,117,216,1)",-->
-<!--                        pointBorderColor: "rgba(255,255,255,0.8)",-->
-<!--                        pointHoverRadius: 5,-->
-<!--                        pointHoverBackgroundColor: "rgba(2,117,216,1)",-->
-<!--                        pointHitRadius: 20,-->
-<!--                        pointBorderWidth: 2,-->
-<!--                        data: [20, 32, 33, 34, 33, 31, 30, 29, 27, 28, 28, 27, 26],-->
-<!--                    }],-->
-<!--                },-->
-<!--                options: {-->
-<!--                    scales: {-->
-<!--                        xAxes: [{-->
-<!--                            time: {-->
-<!--                                unit: 'date'-->
-<!--                            },-->
-<!--                            gridLines: {-->
-<!--                                display: false-->
-<!--                            },-->
-<!--                            ticks: {-->
-<!--                                maxTicksLimit: 7-->
-<!--                            }-->
-<!--                        }],-->
-<!--                        yAxes: [{-->
-<!--                            ticks: {-->
-<!--                                min: 0,-->
-<!--                                max: 35,-->
-<!--                                maxTicksLimit: 5-->
-<!--                            },-->
-<!--                            gridLines: {-->
-<!--                                color: "rgba(0, 0, 0, .125)",-->
-<!--                            }-->
-<!--                        }],-->
-<!--                    },-->
-<!--                    legend: {-->
-<!--                        display: false-->
-<!--                    }-->
-<!--                }-->
-<!--            });-->
-<!--           var humidityEx = document.getElementById("humidityChart");-->
-<!--           var myHumidityChart = new Chart(humidityEx, {-->
-<!--               type: 'line',-->
-<!--               data: {-->
-<!--                   labels: ["07:00 AM", "08:00 AM", "09:00 AM", "10:00 AM", "11:00 AM", "12:00 PM", "01:00 PM", "02:00 PM", "03:00 PM", "04:00 PM", "05:00 PM", "06:00 PM", "07:00 PM"],-->
-<!--                   datasets: [{-->
-<!--                       label: "Sessions",-->
-<!--                       lineTension: 0.3,-->
-<!--                       backgroundColor: "rgba(2,117,216,0.2)",-->
-<!--                       borderColor: "rgba(2,117,216,1)",-->
-<!--                       pointRadius: 5,-->
-<!--                       pointBackgroundColor: "rgba(2,117,216,1)",-->
-<!--                       pointBorderColor: "rgba(255,255,255,0.8)",-->
-<!--                       pointHoverRadius: 5,-->
-<!--                       pointHoverBackgroundColor: "rgba(2,117,216,1)",-->
-<!--                       pointHitRadius: 20,-->
-<!--                       pointBorderWidth: 2,-->
-<!--                       data: [85, 80, 75, 77, 74, 74, 75, 72, 77, 85, 85, 80, 75],-->
-<!--                   }],-->
-<!--               },-->
-<!--               options: {-->
-<!--                   scales: {-->
-<!--                       xAxes: [{-->
-<!--                           time: {-->
-<!--                               unit: 'date'-->
-<!--                           },-->
-<!--                           gridLines: {-->
-<!--                               display: false-->
-<!--                           },-->
-<!--                           ticks: {-->
-<!--                               maxTicksLimit: 7-->
-<!--                           }-->
-<!--                       }],-->
-<!--                       yAxes: [{-->
-<!--                           ticks: {-->
-<!--                               min: 0,-->
-<!--                               max: 100,-->
-<!--                               maxTicksLimit: 5-->
-<!--                           },-->
-<!--                           gridLines: {-->
-<!--                               color: "rgba(0, 0, 0, .125)",-->
-<!--                           }-->
-<!--                       }],-->
-<!--                   },-->
-<!--                   legend: {-->
-<!--                       display: false-->
-<!--                   }-->
-<!--               }-->
-<!--           });-->
-<!--            var windSpeedEx = document.getElementById("windSpeedChart");-->
-<!--            var myWindSpeedChart = new Chart(windSpeedEx, {-->
-<!--                type: 'line',-->
-<!--                data: {-->
-<!--                    labels: ["07:00 AM", "08:00 AM", "09:00 AM", "10:00 AM", "11:00 AM", "12:00 PM", "01:00 PM", "02:00 PM", "03:00 PM", "04:00 PM", "05:00 PM", "06:00 PM", "07:00 PM"],-->
-<!--                    datasets: [{-->
-<!--                        label: "Sessions",-->
-<!--                        lineTension: 0.3,-->
-<!--                        backgroundColor: "rgba(2,117,216,0.2)",-->
-<!--                        borderColor: "rgba(2,117,216,1)",-->
-<!--                        pointRadius: 5,-->
-<!--                        pointBackgroundColor: "rgba(2,117,216,1)",-->
-<!--                        pointBorderColor: "rgba(255,255,255,0.8)",-->
-<!--                        pointHoverRadius: 5,-->
-<!--                        pointHoverBackgroundColor: "rgba(2,117,216,1)",-->
-<!--                        pointHitRadius: 20,-->
-<!--                        pointBorderWidth: 2,-->
-<!--                        data: [6, 6, 6, 4, 4, 4, 4, 5, 5, 6, 7, 6, 6],-->
-<!--                    }],-->
-<!--                },-->
-<!--                options: {-->
-<!--                    scales: {-->
-<!--                        xAxes: [{-->
-<!--                            time: {-->
-<!--                                unit: 'date'-->
-<!--                            },-->
-<!--                            gridLines: {-->
-<!--                                display: false-->
-<!--                            },-->
-<!--                            ticks: {-->
-<!--                                maxTicksLimit: 7-->
-<!--                            }-->
-<!--                        }],-->
-<!--                        yAxes: [{-->
-<!--                            ticks: {-->
-<!--                                min: 0,-->
-<!--                                max: 10,-->
-<!--                                maxTicksLimit: 5-->
-<!--                            },-->
-<!--                            gridLines: {-->
-<!--                                color: "rgba(0, 0, 0, .125)",-->
-<!--                            }-->
-<!--                        }],-->
-<!--                    },-->
-<!--                    legend: {-->
-<!--                        display: false-->
-<!--                    }-->
-<!--                }-->
-<!--            });-->
-<!--            var windPressureEx = document.getElementById("windPressureChart");-->
-<!--            var myWindPressureChart = new Chart(windPressureEx, {-->
-<!--                type: 'line',-->
-<!--                data: {-->
-<!--                    labels: ["07:00 AM", "08:00 AM", "09:00 AM", "10:00 AM", "11:00 AM", "12:00 PM", "01:00 PM", "02:00 PM", "03:00 PM", "04:00 PM", "05:00 PM", "06:00 PM", "07:00 PM"],-->
-<!--                    datasets: [{-->
-<!--                        label: "Sessions",-->
-<!--                        lineTension: 0.3,-->
-<!--                        backgroundColor: "rgba(2,117,216,0.2)",-->
-<!--                        borderColor: "rgba(2,117,216,1)",-->
-<!--                        pointRadius: 5,-->
-<!--                        pointBackgroundColor: "rgba(2,117,216,1)",-->
-<!--                        pointBorderColor: "rgba(255,255,255,0.8)",-->
-<!--                        pointHoverRadius: 5,-->
-<!--                        pointHoverBackgroundColor: "rgba(2,117,216,1)",-->
-<!--                        pointHitRadius: 20,-->
-<!--                        pointBorderWidth: 2,-->
-<!--                        data: [20, 20, 10, 30, 30, 28, 25, 25, 20, 21, 20, 22, 23],-->
-<!--                    }],-->
-<!--                },-->
-<!--                options: {-->
-<!--                    scales: {-->
-<!--                        xAxes: [{-->
-<!--                            time: {-->
-<!--                                unit: 'date'-->
-<!--                            },-->
-<!--                            gridLines: {-->
-<!--                                display: false-->
-<!--                            },-->
-<!--                            ticks: {-->
-<!--                                maxTicksLimit: 7-->
-<!--                            }-->
-<!--                        }],-->
-<!--                        yAxes: [{-->
-<!--                            ticks: {-->
-<!--                                min: 0,-->
-<!--                                max: 40,-->
-<!--                                maxTicksLimit: 5-->
-<!--                            },-->
-<!--                            gridLines: {-->
-<!--                                color: "rgba(0, 0, 0, .125)",-->
-<!--                            }-->
-<!--                        }],-->
-<!--                    },-->
-<!--                    legend: {-->
-<!--                        display: false-->
-<!--                    }-->
-<!--                }-->
-<!--            });-->
-<!--            var rainGaugeEx = document.getElementById("rainGaugeChart");-->
-<!--            var myRainGaugeChart = new Chart(rainGaugeEx, {-->
-<!--                type: 'line',-->
-<!--                data: {-->
-<!--                    labels: ["07:00 AM", "08:00 AM", "09:00 AM", "10:00 AM", "11:00 AM", "12:00 PM", "01:00 PM", "02:00 PM", "03:00 PM", "04:00 PM", "05:00 PM", "06:00 PM", "07:00 PM"],-->
-<!--                    datasets: [{-->
-<!--                        label: "Sessions",-->
-<!--                        lineTension: 0.3,-->
-<!--                        backgroundColor: "rgba(2,117,216,0.2)",-->
-<!--                        borderColor: "rgba(2,117,216,1)",-->
-<!--                        pointRadius: 5,-->
-<!--                        pointBackgroundColor: "rgba(2,117,216,1)",-->
-<!--                        pointBorderColor: "rgba(255,255,255,0.8)",-->
-<!--                        pointHoverRadius: 5,-->
-<!--                        pointHoverBackgroundColor: "rgba(2,117,216,1)",-->
-<!--                        pointHitRadius: 20,-->
-<!--                        pointBorderWidth: 2,-->
-<!--                        data: [20, 20, 10, 30, 30, 28, 25, 25, 20, 21, 20, 22, 23],-->
-<!--                    }],-->
-<!--                },-->
-<!--                options: {-->
-<!--                    scales: {-->
-<!--                        xAxes: [{-->
-<!--                            time: {-->
-<!--                                unit: 'date'-->
-<!--                            },-->
-<!--                            gridLines: {-->
-<!--                                display: false-->
-<!--                            },-->
-<!--                            ticks: {-->
-<!--                                maxTicksLimit: 7-->
-<!--                            }-->
-<!--                        }],-->
-<!--                        yAxes: [{-->
-<!--                            ticks: {-->
-<!--                                min: 0,-->
-<!--                                max: 40,-->
-<!--                                maxTicksLimit: 5-->
-<!--                            },-->
-<!--                            gridLines: {-->
-<!--                                color: "rgba(0, 0, 0, .125)",-->
-<!--                            }-->
-<!--                        }],-->
-<!--                    },-->
-<!--                    legend: {-->
-<!--                        display: false-->
-<!--                    }-->
-<!--                }-->
-<!--            });-->
-<!--        </script>-->
     </body>
 </html>

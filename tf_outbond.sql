@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Mar 20, 2018 at 05:02 AM
+-- Generation Time: Mar 20, 2018 at 05:19 AM
 -- Server version: 10.1.28-MariaDB
 -- PHP Version: 5.6.32
 
@@ -45,7 +45,7 @@ CREATE TABLE `weather` (
   `id` int(11) NOT NULL,
   `temperature` float DEFAULT NULL,
   `humidity` float DEFAULT NULL,
-  `wind_pressure` float DEFAULT NULL,
+  `air_pressure` float DEFAULT NULL,
   `wind_speed` float DEFAULT NULL,
   `wind_direction` float DEFAULT NULL,
   `rain_gauge` float DEFAULT NULL,
